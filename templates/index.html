@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Calculadora de Meta Financeira</title>
+</head>
+<body>
+    <h1>Calculadora de Meta Financeira</h1>
+   
+    <form action="/calcular" method="POST">
+        <label for="desejo">Desejo:</label>
+        <input type="text" id="desejo" name="desejo" required><br><br>
+
+        <label for="meta_financeira">Meta Financeira (R$):</label>
+        <input type="number" id="meta_financeira" name="meta_financeira" placeholder="Insira o valor (ex: 100) Numeros sem virgulas" required><br><br>
+
+        <label for="economia_mensal">Economia Mensal (R$):</label>
+        <input type="number" id="economia_mensal" name="economia_mensal" placeholder="Insira o valor (ex: 10) Numeros sem virgula" required><br><br>
+
+        <input type="submit" value="Calcular">
+    </form>
+</body>
+</html>

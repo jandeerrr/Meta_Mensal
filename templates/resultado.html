@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <style>
+        body {
+            /* Adicione a imagem de fundo do mesmo diretório */
+            background-image: url('https://drive.google.com/uc?export=view&id=1igMG86QiGWELHx0yRRf2qRLwL2WJQrPc');
+            background-size: cover; /* Ajusta a imagem para cobrir todo o corpo */
+        }
+
+        h2,
+        p,
+        div {
+            /* Garante que o conteúdo seja legível na frente da imagem de fundo */
+            color: blue;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Resultado da Calculadora</title>
+</head>
+
+<body>
+    <h2>Resultado</h2>
+
+    <h1>Com uma economia mensal de R$ {{ economia_mensal }}, <p>você atingirá sua meta</p> de R$
+        {{ '{:,.2f}'.format(meta_financeira) }} para {{ desejo }} em aproximadamente
+        {{ '{:.0f}'.format(tempo_necessario) }} meses.</h1>
+    <div>
+        <p>localizar a data, clicando no campo abaixo!</p>
+        <input type="text" id="calendario" placeholder="Selecione a data">
+    </div>
+
+    <script>
+        flatpickr("#calendario", {
+            dateFormat: "Y-m-d", // Formato da data (pode ser ajustado conforme necessário)
+            allowInput: true, // Permite que os usuários digitem manualmente a data
+            minDate: "today", // Impede datas anteriores ao dia atual
+        });
+    </script>
+
+</body>
+
+</html>
+
